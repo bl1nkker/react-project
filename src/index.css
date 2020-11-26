@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
+
+:root{
+    --head-foot-bg-color: rgb(9, 9, 51);
+    --head-foot-text-color:rgb(234, 235, 181);
+    --head-foot-hover-color: rgb(218, 153, 34);
+    
+}
+
+html{
+    font-family: 'Roboto';
+    font-size: 62.5%;
+    box-sizing: border-box;
+    
+}
+
+body,
+#root{
+  height: 100vh;
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-areas: 
+    'header'
+    'main'
+    'footer';
+    grid-template-rows: 5rem 1fr 5rem;
+    grid-template-columns: 1fr;
+    height: 100%;
+}
+
+header{
+  display: flex;
+    background-color: var(--head-foot-bg-color);
+    color: var(--head-foot-text-color);
+    grid-area: header;
+    align-items: center;
+}
+
+header a{
+  color: var(--head-foot-text-color);
+  text-decoration: none;
+}
+
+header a:hover{
+  color: var(--head-foot-hover-color);
+  
+}
+
+main{
+    grid-area: main;
+    
+}
+
+footer{
+  display: flex;
+    background-color: var(--head-foot-bg-color);
+    color: var(--head-foot-text-color);
+    grid-area: footer;
+    justify-content: center;
+    align-items: center;
+}
