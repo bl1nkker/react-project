@@ -63,3 +63,84 @@ footer{
     justify-content: center;
     align-items: center;
 }
+
+/*          Content CSS          */
+.content{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main{
+  flex: 3 60rem
+}
+
+.sidebar{
+  flex: 1 20rem
+}
+
+
+/*          Product CSS          */
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  list-style-type: none;
+}
+
+.products li{
+  flex: 0 1 29rem;
+  height: 47rem;
+  padding: 2rem;
+
+}
+
+.product{
+  max-width: 16.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product img{
+  max-height: 40rem;
+}
+
+.product-price{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price div,
+.product-price button{
+  text-align: center;
+  flex:1;
+}
+
+.product a{
+  text-decoration: none;
+}
+
+.product-price div{
+  font-size: 2rem;
+}
+
+.button{
+  padding: 1rem;
+  border: .1rem gray solid;
+  background-color: honeydew;
+  cursor: pointer;
+}
+
+.button:hover{
+  border: .1rem pink solid;
+  background-color: purple;
+  color: wheat;
+}
+
+button.primary{
+  background-color: gold;
+}
