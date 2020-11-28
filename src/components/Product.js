@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 
 export default class Product extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            productList: <ul className='products'>
+
+    render() {
+        return (
+            <div>
+               <ul className='products'>
                             {this.props.products.map(product => (
                                 <li key={product._id}>
                                     <div className='product'>
@@ -18,15 +19,7 @@ export default class Product extends Component {
                                         </div>
                                     </div>
                                 </li>))}
-                        </ul>
-        }
-    }
-
-    render() {
-        console.log(this.state.productList)
-        return (
-            <div>
-               {this.state.productList}  
+                        </ul>  
             </div>
         )
     }
