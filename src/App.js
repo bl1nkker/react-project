@@ -1,9 +1,12 @@
-// feature 1
+import Content from './components/Content'
+
 function App() {
   return (
     <div className="grid-container">
       <header> <a href='#home'>Shopping Cart</a></header>
-      <main>Project content</main>
+
+      <Content/>
+      
       <footer>All rights reserved</footer>
     </div>
   );
