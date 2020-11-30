@@ -71,11 +71,11 @@ footer{
 }
 
 .main{
-  flex: 3 60rem
+  flex: 3 50rem
 }
 
 .sidebar{
-  flex: 1 20rem
+  flex: 1 30rem
 }
 
 
@@ -94,12 +94,13 @@ footer{
 .products li{
   flex: 0 1 29rem;
   height: 47rem;
-  padding: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 
 }
 
 .product{
-  max-width: 16.5em;
+  max-width: 15.5em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -143,4 +144,58 @@ footer{
 
 button.primary{
   background-color: gold;
+}
+
+/*          Cart CSS          */
+
+.cart{
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-header{
+  border-bottom: 0.1rem gray solid;
+}
+
+.cart-items{
+  padding: 0;
+  width: 100%;
+  list-style-type: none;
+}
+
+.cart-items img{
+  width: 5rem
+}
+
+.cart-item{
+  display: grid;
+  border: 2px violet solid;
+  padding: .3em;
+  margin-bottom: .5em;
+  grid-template-areas: 
+  'image title title'
+  'image price button';
+}
+
+.cart-item p{
+  grid-area: title;
+}
+
+.cart-item img{
+  grid-area: image;
+}
+
+.cart-item button{
+  grid-area: button;
+  max-height: 2em;
+  max-width: 10em;
+}
+
+.cart-item h6{
+  margin: 0;
+  font-size: 1em;
+  text-align: center;
+  grid-area: price;
 }
