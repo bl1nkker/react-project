@@ -1,10 +1,37 @@
 import React, { Component } from 'react'
 
 export default class Cart extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            isProceeded: false,
+            name:'',
+            email:'',
+            address:''
+        }
+    }
+    handleChange = (event) =>{
+        this.setState({[event.target.name]:event.target.value})
+    }
+    proceedHandler = () =>{
+        this.setState({isProceeded: true})
+    }
+
+    createOrder = (event) =>{
+        event.preventDefault();
+        const new_order = {
+            name:this.state.name,
+            email:this.state.email,
+            address:this.state.address,
+            cartItems:this.props.cartItems
+        }
+        this.props.createOrder(new_order)
+    }
+
     render() {
         console.log(this.props.cartItems)
         return (
-            <div >
+            <div>
                     {this.props.count === 0 ?
                     <div className='cart cart-header'>Cart is empty</div>:
                     <div className='cart cart-header'>Cart has {this.props.count} items</div>
@@ -27,9 +54,33 @@ export default class Cart extends Component {
                 {this.props.count !==0 ? (
                         <div className='cart-total'>
                             <p>Total: $ {this.props.cartItems.reduce((a,b) => a + b.price * b.count, 0)}</p>
-                            <button className='button primary'>Proceed</button>
+                            <button onClick={this.proceedHandler} className='button primary'>Proceed</button>
                         </div>
                     ): null}
+                {this.state.isProceeded && (
+                    <form  onSubmit={this.createOrder} className='proceed-form'>
+                        <ul>
+                            <li>
+                                <label onChange={this.handleChange} for='name'>
+                                    <input type="name" required name='name'/>
+                                </label>  
+                            </li>
+
+                            <li>
+                                <label onChange={this.handleChange} for='email'>
+                                    <input type="email" required name='email'/>
+                                </label> 
+                            </li>
+
+                            <li>
+                                <label onChange={this.handleChange} for='address'>
+                                    <input type="address" required name='address'/>
+                                </label>        
+                            </li>
+                        </ul>
+                        <button className='button primary' type='submit'>Submit Form</button> 
+                    </form>
+                )}
             </div>
         )
     }
