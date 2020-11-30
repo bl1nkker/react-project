@@ -11,7 +11,7 @@ export default class Content extends Component {
             products: data.products,
             size: '',
             sort: '',
-            cartItems:[]
+            cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : []
         }
         this.sortProducts = this.sortProducts.bind(this)
         this.filterProducts = this.filterProducts.bind(this)
@@ -43,6 +43,13 @@ export default class Content extends Component {
             cartItems.push({...product, count:1})  
         }
         this.setState({cartItems:[...cartItems]})
+        localStorage.setItem('cartItems', JSON.stringify(cartItems))
+    }
+
+    removeFromCart = (product) =>{
+        const updatedCart = [...this.state.cartItems.filter((item) => product._id !== item._id)]
+        this.setState({cartItems:[...updatedCart]})
+        localStorage.setItem('cartItems', JSON.stringify(updatedCart))
     }
 
     filterProducts = (event) =>{
@@ -61,10 +68,10 @@ export default class Content extends Component {
         })
     }
 
-    removeFromCart = (product) =>{
-        const updatedCart = [...this.state.cartItems.filter((item) => product._id !== item._id)]
-        this.setState({cartItems:[...updatedCart]})
+    createOrder = (order) =>{
+        alert('Need to make an order to' + order.name)
     }
+    
     render() {
         let cartItemsCount = 0
         for (let i = 0; i < this.state.cartItems.length; i++){
@@ -91,6 +98,7 @@ export default class Content extends Component {
                         count={cartItemsCount}
                         cartItems={this.state.cartItems}
                         removeFromCart={this.removeFromCart}
+                        createOrder={this.createOrder}
                         />
                     </div>
 
