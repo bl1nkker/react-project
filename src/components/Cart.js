@@ -29,7 +29,6 @@ export default class Cart extends Component {
     }
 
     render() {
-        console.log(this.props.cartItems)
         return (
             <div>
                     {this.props.count === 0 ?
