@@ -199,3 +199,31 @@ button.primary{
   text-align: center;
   grid-area: price;
 }
+
+
+/*          Modals CSS          */
+
+.modal-product-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-height: 80vh;
+}
+
+.modal-product-details img{
+  max-height:  80vh;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.modal-product-details-description{
+  flex: 1 1;
+  margin: 1rem;
+}
+
+.modal-close-btn{
+  position: absolute;
+  right: 1rem;
+  top: 2.5rem;
+  z-index: 1000;
+}
