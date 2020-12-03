@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { Provider } from 'react-redux'
 import data from './../data.json'
 import Cart from './Cart'
 import Filter from './Filter'
-import Product from './Product'
+import Products from './Product'
+import {store} from './../store.js'
 
 export default class Content extends Component {
     constructor(props){
@@ -73,11 +75,13 @@ export default class Content extends Component {
     }
     
     render() {
+        
         let cartItemsCount = 0
         for (let i = 0; i < this.state.cartItems.length; i++){
             cartItemsCount += this.state.cartItems[i].count
         }
         return (
+            <Provider store={store}>
             <main>
                 <div className='content'>
                     <div className='main'>
@@ -88,7 +92,7 @@ export default class Content extends Component {
                         sortProducts={this.sortProducts}
                         filterProducts={this.filterProducts}/>
 
-                        <Product 
+                        <Products 
                         products={this.state.products}
                         addToCart={this.addToCart}
                         />
@@ -104,6 +108,7 @@ export default class Content extends Component {
 
                 </div>
             </main>
+            </Provider>
         )
     }
 }
