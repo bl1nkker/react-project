@@ -1,0 +1,6 @@
+How to start your server:
+
+1. Write server.js
+2. Install MongoDB and Postman
+3. Terminate 'npm run server'
+4. Open Postman -> Plus sign and paste url + api
